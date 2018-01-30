@@ -74,4 +74,20 @@ class Blogentry extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Comment::className(), ['blogEntry_id' => 'id']);
     }
+
+    public static function getRecent()
+    {
+        return static::find()->orderBy(['date' => SORT_DESC])->limit(3)->all();
+    }
+
+    public static function getPopular()
+    {
+        return static::find()->orderBy(['viewed' => SORT_DESC])->limit(3)->all();
+    }
+
+    public function increaseViewCount()
+    {
+        $this->viewed =+ 1;
+        return $this->save(false);
+    }
 }
