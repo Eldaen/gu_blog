@@ -90,4 +90,5 @@ class Blogentry extends \yii\db\ActiveRecord
         $this->viewed =+ 1;
         return $this->save(false);
     }
+
 }

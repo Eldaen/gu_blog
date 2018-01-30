@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\admin\controllers;
+namespace app\modules\controlPanel\controllers;
 
 use Yii;
 use app\models\Blogentry;
