@@ -4,11 +4,11 @@
 
     foreach($popular as $article) { ?>
 
-        <article class="widget__article"><a href="<?='/blog/article/?id=' . $article->id?>" class="widget__article-header"><?= StringHelper::truncate($article->title,100,'...')?></a>
+        <aside class="widget__article"><a href="<?='/blog/article/?id=' . $article->id?>" class="widget__article-header"><?= StringHelper::truncate($article->title,100,'...')?></a>
             <p class="widget__article-data">
                 <span class="widget__article-date"><?=$article->date?> </span>
                 <a class="widget__article-author">Анонимус</a>
             </p>
-        </article>
+        </aside>
     <? } ?>
 </div>
