@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use bupy7\bbcode\BBCodeBehavior;
 use Yii;
 use yii\helpers\StringHelper;
 
@@ -15,6 +16,7 @@ use yii\helpers\StringHelper;
  * @property resource $body
  * @property int $user_id
  * @property string $date
+ * @property string $purified_content
  *
  * @property Users $user
  * @property Comment[] $comments
@@ -60,6 +62,17 @@ class Blogentry extends \yii\db\ActiveRecord
         ];
     }
 
+    public function behaviors()
+    {
+        return [
+        'bb' => [
+            'class' => BBCodeBehavior::className(),
+            'attribute' => 'body',
+            'saveAttribute' => 'purified_content',
+        ],
+    ];
+}
+
     /**
      * @return \yii\db\ActiveQuery
      */
@@ -92,16 +105,8 @@ class Blogentry extends \yii\db\ActiveRecord
         return $this->save(false);
     }
 
-    /**
-     * Обрезаем Body чтобы получилось preview
-     * @param bool $insert
-     * @return bool
-     */
-    public function beforeSave($insert)
-    {
-        $this->preview = StringHelper::truncate($this->body, 197, '...');
-        return parent::beforeSave($insert);
-    }
+
+
 
 
 }

@@ -2,6 +2,7 @@
 
 /* @var $this yii\web\View */
 
+use yii\helpers\Html;
 use yii\helpers\StringHelper;
 
 $this->title = 'Learning yii2, GU-web';
@@ -14,8 +15,8 @@ $this->title = 'Learning yii2, GU-web';
             <? foreach ($articles as $model) {?>
 
             <div class="article">
-                <h2 class="article__header"><?=$model->title ?></h2>
-                <p class="article__preview"><?=$model->preview ?>
+                <h2 class="article__header"><?= Html::encode($model->title) ?></h2>
+                <p class="article__preview"><?= Html::encode($model->preview) ?>
                     <a href="<?='/blog/article/?id=' . $model->id?>" class="article__read-more btn btn-info">Читать дальше</a></p>
             </div>
 

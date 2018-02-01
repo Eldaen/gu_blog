@@ -18,7 +18,10 @@
         "yiisoft/yii2": "~2.0.5",
         "yiisoft/yii2-bootstrap": "~2.0.0",
         "yiisoft/yii2-swiftmailer": "~2.0.0",
-        "mdmsoft/yii2-admin": "~2.0"
+        "mdmsoft/yii2-admin": "~2.0",
+        "franciscomaya/yii2-sceditor": "dev-master",
+        "bupy7/yii2-bbcode": "1.*",
+        "kalyabin/yii2-wysibb": "dev-master",
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

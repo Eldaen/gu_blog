@@ -86,7 +86,7 @@ $config = [
         'allowActions' => [
             'site/*',
             'login/*',
-            'controlPanel/*'
+            'comment/*'
         ]
     ],
 ];

@@ -8,7 +8,7 @@ use yii\helpers\Html; ?>
     <div class="col-md-9 main-page">
         <h1 class="main-page__header"><?= Html::encode($article->title) ?></h1>
 
-        <div class="article-container"><?= $article->body ?></div>
+        <div class="article-container"><?= $article->purified_content ?></div>
         <?= $this->render('/partials/comments',
             [
                 'article' => $article,

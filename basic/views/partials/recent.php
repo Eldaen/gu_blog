@@ -3,7 +3,7 @@
     <? use yii\helpers\StringHelper;
 
     foreach ($recent as $article) { ?>
-    <article class="widget__article"><a href="<?='/site/article/?id=' . $article->id?>" class="widget__article-header"><?= StringHelper::truncate($article->title,100,'...')?></a>
+    <article class="widget__article"><a href="<?='/blog/article/?id=' . $article->id?>" class="widget__article-header"><?= StringHelper::truncate($article->title,100,'...')?></a>
         <p class="widget__article-data">
             <span class="widget__article-date"><?=$article->date?> </span>
             <a  class="widget__article-author">Анонимус</a>

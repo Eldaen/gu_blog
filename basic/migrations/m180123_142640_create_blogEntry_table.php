@@ -18,6 +18,7 @@ class m180123_142640_create_blogEntry_table extends Migration
             'title' => $this->string(255),
             'preview' => $this->string(200),
             'body' => $this->binary(),
+            'purified_content' => $this->binary(),
             'user_id' => $this->integer(),
             'date' => $this->dateTime()
         ]);

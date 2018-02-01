@@ -19,7 +19,7 @@ class CommentForm extends Model
         $comment = new Comment;
         $comment->text = $this->comment;
         $comment->user_id = Yii::$app->user->id;
-        $comment->article_id = $article_id;
+        $comment->blogEntry_id = $article_id;
         $comment->date = date('Y-m-d H:i:s');
         return $comment->save();
     }

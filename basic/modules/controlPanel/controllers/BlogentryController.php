@@ -5,6 +5,8 @@ namespace app\modules\controlPanel\controllers;
 use Yii;
 use app\models\Blogentry;
 use app\models\BlogentrySearch;
+use yii\filters\AccessControl;
+use yii\helpers\StringHelper;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -25,7 +27,7 @@ class BlogentryController extends Controller
                 'actions' => [
                     'delete' => ['POST'],
                 ],
-            ],
+            ]
         ];
     }
 

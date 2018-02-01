@@ -59,4 +59,17 @@ class Comment extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Blogentry::className(), ['id' => 'blogEntry_id']);
     }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getUser()
+    {
+        return User::getUserName($this->user_id);
+    }
+
+    public function getDate()
+    {
+        return Yii::$app->formatter->asDatetime($this->date);
+    }
 }

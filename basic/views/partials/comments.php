@@ -20,7 +20,7 @@
         $form = ActiveForm::begin(
             [
                 'action' => [
-                    '/site/comment',
+                    'comment/create',
                     'id' => $article->id
                 ],
                 'options' => [
