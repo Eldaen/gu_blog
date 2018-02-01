@@ -42,7 +42,7 @@ class BlogentrySearch extends Blogentry
      */
     public function search($params, $conditions = null)
     {
-        if(!$$conditions) {
+        if(!$conditions) {
             $query = Blogentry::find();
         }
 

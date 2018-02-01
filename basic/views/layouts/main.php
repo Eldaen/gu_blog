@@ -41,7 +41,7 @@ AppAsset::register($this);
         'items' => [
             ['label' => 'Home', 'url' => ['/site/index']],
             ['label' => 'Blog', 'url' => ['/blog/index']],
-            Yii::$app->user->can('CanSeeAdminPanel') ? ['label' => 'Одминка(dev)', 'url' => ['admin/blogentry/index']] : '',
+            Yii::$app->user->can('CanSeeAdminPanel') ? ['label' => 'Одминка(dev)', 'url' => ['/admin/blogentry/index']] : '',
             Yii::$app->user->isGuest ? ('') : (
             ['label' => 'User CP', 'url' => ['/controlPanel/default/index']]
             ),
