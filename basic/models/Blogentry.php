@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\helpers\StringHelper;
 
 /**
  * This is the model class for table "blogentry".
@@ -90,5 +91,17 @@ class Blogentry extends \yii\db\ActiveRecord
         $this->viewed =+ 1;
         return $this->save(false);
     }
+
+    /**
+     * Обрезаем Body чтобы получилось preview
+     * @param bool $insert
+     * @return bool
+     */
+    public function beforeSave($insert)
+    {
+        $this->preview = StringHelper::truncate($this->body, 197, '...');
+        return parent::beforeSave($insert);
+    }
+
 
 }

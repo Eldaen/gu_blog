@@ -36,12 +36,17 @@ class BlogentrySearch extends Blogentry
      * Creates data provider instance with search query applied
      *
      * @param array $params
+     * @param array $conditions
      *
      * @return ActiveDataProvider
      */
-    public function search($params)
+    public function search($params, $conditions = null)
     {
-        $query = Blogentry::find();
+        if(!$$conditions) {
+            $query = Blogentry::find();
+        }
+
+        $query = Blogentry::find()->where($conditions);
 
         // add conditions that should always apply here
 

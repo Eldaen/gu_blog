@@ -18,7 +18,15 @@ class BlogController extends Controller
 {
     public function actionIndex()
     {
-        //TODO: список статей
+        $articles = BlogEntry::find()->orderBy(['id' => SORT_DESC])->all();
+        $recent = BlogEntry::getRecent();
+        $popular = BlogEntry::getPopular();
+        return $this->render('index',
+            [
+                'articles' => $articles,
+                'recent' => $recent,
+                'popular' => $popular
+            ]);
     }
 
 
@@ -29,7 +37,7 @@ class BlogController extends Controller
         $recent = BlogEntry::getRecent();
         $popular = BlogEntry::getPopular();
 
-        $comments = Comment::findAll(['article_id' => $id]);
+        $comments = Comment::findAll(['blogEntry_id' => $id]);
         $commentForm = new CommentForm();
         $article->increaseViewCount();
 

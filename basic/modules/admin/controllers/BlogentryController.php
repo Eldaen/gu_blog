@@ -66,7 +66,7 @@ class BlogentryController extends Controller
     {
         $model = new Blogentry();
 
-        //$model->user_id = Yii::$app->user->getIdentity()->getId();
+        $model->user_id = Yii::$app->user->getIdentity()->getId();
         $model->date = date("Y-m-d H:i:s", time());
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {

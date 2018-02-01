@@ -36,7 +36,7 @@ class BlogentryController extends Controller
     public function actionIndex()
     {
         $searchModel = new BlogentrySearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams, ['user_id' => Yii::$app->user->getId()]);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
@@ -66,7 +66,7 @@ class BlogentryController extends Controller
     {
         $model = new Blogentry();
 
-        //$model->user_id = Yii::$app->user->getIdentity()->getId();
+        $model->user_id = Yii::$app->user->getIdentity()->getId();
         $model->date = date("Y-m-d H:i:s", time());
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
